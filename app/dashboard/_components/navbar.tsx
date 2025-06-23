@@ -14,6 +14,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useState } from "react";
 
 const navLInks = [
   {
@@ -30,6 +31,7 @@ const navLInks = [
 
 export default function Navbar() {
   const pathmane = usePathname();
+  const [open,setOpen] = useState(false)
   return (
     <header className=" sticky top-0 left-0 px-6 z-10 w-full py-4 md:px-10 border-b border-primary backdrop-blur-xl  shadow-lg flex items-center justify-between">
       <Link className="flex items-center gap-3" href={"/dashboard"}>
@@ -71,7 +73,7 @@ export default function Navbar() {
         <ModeToggle />
       </div>
       <div className="block md:hidden">
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger asChild>
             <Menu size={30} />
           </SheetTrigger>
@@ -95,6 +97,7 @@ export default function Navbar() {
                         pathmane === link.href && "text-primary"
                       )}
                       href={link.href}
+                      onClick={() => setOpen(false)}
                     >
                       <link.icon />
                       {link.label}

@@ -60,6 +60,7 @@ export default function SignUpForm() {
             <div className="flex flex-col gap-3">
               <Button type="submit">Sign up</Button>
               <Button
+              type="button"
                 onClick={() => router.push("/dashboard")}
                 variant={"outline"}
               >

@@ -54,7 +54,7 @@ export default function LoginForm() {
             </div>
             <div className="flex flex-col gap-3">
               <Button type="submit">Login</Button>
-              <Button onClick={() => router.push("/dashboard") } variant={"outline"}>
+              <Button type="button" onClick={() => router.push("/dashboard") } variant={"outline"}>
                 <Github />
                 Login with Github
               </Button>
