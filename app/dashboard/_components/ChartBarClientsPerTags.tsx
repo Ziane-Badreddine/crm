@@ -28,9 +28,9 @@ export function ChartBarClientsPerTags() {
         client.tags?.includes(tag)
       ).length;
 
-      return { tag, number: clientsCount };
+      return { tag, clients: clientsCount };
     })
-    .sort((a, b) => a.number - b.number);
+    .sort((a, b) => a.clients - b.clients);
 
   const chartConfig = {
     tag: {
@@ -65,7 +65,7 @@ export function ChartBarClientsPerTags() {
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="number" fill="var(--color-tag)" radius={8} />
+            <Bar dataKey="clients" fill="var(--color-tag)" radius={8} />
           </BarChart>
         </ChartContainer>
       </CardContent>
@@ -73,7 +73,7 @@ export function ChartBarClientsPerTags() {
         <div className="flex gap-2 leading-none font-medium">
           {mostPopularTag && (
             <>
-              Most popular: {mostPopularTag.tag} ({mostPopularTag.number}{" "}
+              Most popular: {mostPopularTag.tag} ({mostPopularTag.clients}{" "}
               clients)
               <Tag className="h-4 w-4" />
             </>
