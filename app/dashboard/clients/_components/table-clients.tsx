@@ -148,7 +148,8 @@ export default function TableClients({
           <AlertDialogHeader>
             <AlertDialogTitle>Delete this client?</AlertDialogTitle>
             <AlertDialogDescription>
-              This action is irreversible. All client data will be lost.
+               This action is irreversible. The client and all associated data
+                will be permanently removed.
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

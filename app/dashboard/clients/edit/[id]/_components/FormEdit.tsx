@@ -146,7 +146,7 @@ export default function FormEdit({ clientId }: { clientId: string }) {
         />
         <div className="w-full  flex flex-col md:flex-row md:justify-end gap-2">
           <Button  type="button" onClick={() => router.back()} variant={"outline"} disabled={form.formState.isSubmitting}>
-            cancel
+            Cancel
           </Button>
           <Button type="submit" disabled={form.formState.isSubmitting}>
             {form.formState.isSubmitting ? "Submitting..." : "Submit"}

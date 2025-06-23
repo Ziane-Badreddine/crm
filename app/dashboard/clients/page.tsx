@@ -52,9 +52,12 @@ export default function ClientPage() {
     const end = start + itemsPerPage;
     setFiltreClients(filtered.slice(start, end));
   }, [filtered, page, itemsPerPage]);
-  const pages = Math.ceil(filtered.length / itemsPerPage);
 
-  console.log(itemsPerPage);
+  useEffect(() => {
+    setPage(1);
+  }, [search, filtredTags, sortName]);
+
+  const pages = Math.ceil(filtered.length / itemsPerPage);
 
   return (
     <main className="p-5 w-full">
