@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { Tag } from "lucide-react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -39,6 +39,12 @@ export function ChartBarClientsPerTags() {
     },
   } satisfies ChartConfig;
 
+  const totalClientsWithTags = clients.filter(
+    (client) => client.tags!.length > 0
+  ).length;
+  const mostPopularTag =
+    chartData.length > 0 ? chartData[chartData.length - 1] : null;
+
   return (
     <Card>
       <CardHeader>
@@ -65,10 +71,16 @@ export function ChartBarClientsPerTags() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          {mostPopularTag && (
+            <>
+              Most popular: {mostPopularTag.tag} ({mostPopularTag.number}{" "}
+              clients)
+              <Tag className="h-4 w-4" />
+            </>
+          )}
         </div>
         <div className="text-muted-foreground leading-none">
-          Showing total visitors for the last 6 months
+          {totalClientsWithTags} of {clients.length} clients have tags assigned
         </div>
       </CardFooter>
     </Card>
